@@ -107,18 +107,18 @@ class Cell:
         self.quantity1 = quantity1
         self.quantity2 = quantity2
 
-    def __add__(self, quantity1, quantity2):
-        return f'Сумма клеток = {self.quantity1 + self.quantity2}'
+    def __add__(self, other):
+        return other.quantity1 + other.quantity2
 
-    def __sub__(self, quantity1, quantity2):
-        if self.quantity1 - self.quantity2 > 0: return f'Разность клеток = {self.quantity1 - self.quantity2}'
+    def __sub__(self, other):
+        if other.quantity1 - other.quantity2 > 0: return other.quantity1 - other.quantity2
         return 'Операция не выполняется'
 
-    def __mul__(self, quantity1, quantity2):
-        return f'Умножение клеток = {self.quantity1 * self.quantity2}'
+    def __mul__(self, other):
+        return other.quantity1 * other.quantity2
 
-    def __truediv__(self, quantity1, quantity2):
-        return f'Деление клеток = {self.quantity1 // self.quantity2}'
+    def __truediv__(self, other):
+        return other.quantity1 // other.quantity2
 
     def make_order(self, quantity, count):
         t = 0
@@ -132,10 +132,10 @@ class Cell:
 
 
 cell1 = 15
-cell2 = 10
+cell2 = 5
 quantity = Cell(cell1, cell2)
-print(f'Складываем \n{quantity.__add__(cell1, cell2)}\n')
-print(f'Вычитыаем \n{quantity.__sub__(cell1, cell2)}\n')
-print(f'Умножаем \n{quantity.__mul__(cell1, cell2)}\n')
-print(f'Делим \n{quantity.__truediv__(cell1, cell2)}\n')
+print(f'Складываем {(cell1 + cell2)}\n')
+print(f'Вычитыаем \n{(cell1 - cell2)}\n')
+print(f'Умножаем \n{(cell1 * cell2)}\n')
+print(f'Делим \n{(cell1 // cell2)}\n')
 print(quantity.make_order(22,5))
